@@ -79,4 +79,15 @@ public function detail($id_order){
         return Response()->json(['status'=>0]);
       }
     }
+    public function destroy($id_order)
+ {
+ $hapus = orders::where('id_order', $id_order)->delete();
+ if($hapus) {
+ return Response()->json(['status' => 1]);
+ }
+ else {
+ return Response()->json(['status' => 0]);
+ }
+ }
+
   }

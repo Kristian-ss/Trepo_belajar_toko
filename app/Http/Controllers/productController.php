@@ -74,4 +74,15 @@ public function detail($id_product){
         return Response()->json(['status'=>0]);
       }
     }
+    public function destroy($id_product)
+ {
+ $hapus = product::where('id_product', $id_product)->delete();
+ if($hapus) {
+ return Response()->json(['status' => 1]);
+ }
+ else {
+ return Response()->json(['status' => 0]);
+ }
+ }
+
   }
